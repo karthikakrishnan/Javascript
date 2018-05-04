@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Javascript Practice</title>
+  </head>
+<body>
+
+<label>Constructor Function Instance 1:</label><p id="one"></p>
+<label>Constructor Function Instance 2:</label><p id="two"></p>
+
+<label>Objct literal property change:</label><p id="objLiteral"></p>
+
+<script>
+	function f1() {
+		this.myProperty = "This is my property";
+	}
+	var instanceOne = new f1();
+	instanceOne.myProperty = "Instance one property changed";
+	document.getElementById("one").innerHTML = instanceOne.myProperty;
+	var instanceTwo = new f1();
+	document.getElementById("two").innerHTML = instanceTwo.myProperty;
+
+	var myObject = {
+		property: 'Object literal property'
+	};
+	myObject.property = "literal property changed";
+	var anotherObject = myObject;
+	document.getElementById("objLiteral").innerHTML = anotherObject.property;
+</script>
+
+</body>
+</html>
