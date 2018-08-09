@@ -2,6 +2,8 @@
 <html>
   <head>
   <title>Javascript Practice</title>
+  <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 <body>
 <style>
@@ -29,68 +31,23 @@
 <input type="text" placeholder="Name" id="name">
 <label>Age</label>
 <input type="text" placeholder="Age" id="age">
-<button type="button" id="add">Add</button>
+<button type="button" class="btn btn-primary" id="add">Add</button>
 
 <table id="person" class="table">
 	<thead>
 		<tr>
 			<th>Name</th>
 			<th>Age</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
+	
 	</thead>
 </table>
 </div>
-
-<script>
-	function f1() {
-		this.myProperty = "This is my property";
-	}
-	var instanceOne = new f1();
-	instanceOne.myProperty = "Instance one property changed";
-	document.getElementById("one").innerHTML = instanceOne.myProperty;
-	var instanceTwo = new f1();
-	document.getElementById("two").innerHTML = instanceTwo.myProperty;
-
-	var myObject = {
-		property: 'Object literal property'
-	};
-	myObject.property = "literal property changed";
-	var anotherObject = myObject;
-	document.getElementById("objLiteral").innerHTML = anotherObject.property;
-
-	var data = 10;
-	var obj1 = {
-		data: 'This is obj1 data',
-		f: function(a, b) {
-			// alert(this.data);
-			// alert(
-			// 	a +b
-			// );
-			document.getElementById('call').innerHTML = this.data;
-		}
-	};
-
-	var obj = {
-		data: 'This is what we want'
-	};
-
-	obj1.f.call(obj, 5, 8);
-	var addButton = document.getElementById("add");
-	var personDetail = [];
-	addButton.addEventListener('click', ()=> {
-		const personObject = {
-			name: document.getElementById("name").value,
-			age: document.getElementById("age").value
-		};
-		personDetail.push(personObject);
-		console.log(personDetail);
-		var tableReference = document.getElementById("person");
-		for(var i = 0; i < personDetail.length; i++) {
-			var row = $("<tr id='row'/>");
-			document.getElementById("person").append(row);
-		}
-	});
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
