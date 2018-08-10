@@ -32,6 +32,31 @@ var obj = {
 
 obj1.f.call(obj, 5, 8);
 
+// Map, reduce, Filter
+
+var mapButton = document.getElementById('mapButton');
+mapButton.onclick = function() {
+    const DOLLARS = [2, 4, 6, 8];
+    const INR = DOLLARS.map( dollar => dollar * 68.82);
+    console.log('Map: Dollars in INR ', INR);
+}
+
+var filterButton = document.getElementById('filterButton');
+filterButton.onclick = function() {
+    const AGE = ['23', '12', '15', '33', '43'];
+    const filteredAge = AGE.filter(age =>  age > 18 );
+    console.log('Filter: Age > 18', filteredAge);
+}
+
+var reduceButton = document.getElementById('reduceButton');
+reduceButton.onclick = function() {
+    const NUMBERS = [12, 34, 10];
+    const SUM = NUMBERS.reduce((result, number) => {
+        return result + number;
+    }, 0);
+    console.log('Sum', SUM);
+}
+
 // Table Data (CRUD)
 var addButton = document.getElementById("add");
 var nameField = document.getElementById("name");
@@ -52,24 +77,24 @@ addButton.addEventListener('click', ()=> {
         $("#person").append(row);
         row.append($("<td >" + personDetail[i].name + "</td>"));
         row.append($("<td >" + personDetail[i].age + "</td>"));
-        row.append($("<td>&nbsp;&nbsp;<button type='button' class='btn btn-primary' id='edit'><i class='glyphicon glyphicon-pencil'></i> </button></td>"));
-        row.append($("<td>&nbsp;&nbsp;<button type='button' class='btn btn-danger' id='" + i +"'><i class='glyphicon glyphicon-trash'></i> </button></td>"));
-        // personDetail.splice(0, 1);
-        document.getElementById(i).onclick = function() {
-            console.log('delete', i);
-            var rows = document.getElementById('person').getElementsByTagName('tr');
-            for (i = 0; i < rows.length; i++) {
-                rows[i].onclick = function() {
-                personDetail.splice(this.rowIndex - 1, 1);
-                var index = this.rowIndex;
-                $("tr").eq(index).remove();        
-                };
-            }
-        }
+        // row.append($("<td>&nbsp;&nbsp;<button type='button' class='btn btn-primary' id='edit'><i class='glyphicon glyphicon-pencil'></i> </button></td>"));
+        // row.append($("<td>&nbsp;&nbsp;<button type='button' class='btn btn-danger' id='" + i +"'><i class='glyphicon glyphicon-trash'></i> </button></td>"));
+        // // personDetail.splice(0, 1);
+        // document.getElementById(i).onclick = function() {
+        //     console.log('delete', i);
+        //     var rows = document.getElementById('person').getElementsByTagName('tr');
+        //     for (i = 0; i < rows.length; i++) {
+        //         rows[i].onclick = function() {
+        //         personDetail.splice(this.rowIndex - 1, 1);
+        //         var index = this.rowIndex;
+        //         $("tr").eq(index).remove();        
+        //         };
+        //     }
+        // }
 
-        document.getElementById("edit").onclick = function() {
-            console.log('Edit', personDetail[i]);
-        }
+        // document.getElementById("edit").onclick = function() {
+        //     console.log('Edit', personDetail[i]);
+        // }
     }
 
     deleteRow =function(index) {
